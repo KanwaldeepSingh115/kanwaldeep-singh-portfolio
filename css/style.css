@@ -624,9 +624,9 @@ img, svg { max-width: 100%; height: auto; }
 
 
 
+
 /* =========================================================
-   MOBILE MENU FIX
-   Makes mobile navigation fully visible and readable
+   MOBILE MENU - MATCH WEBSITE GLASS GRADIENT THEME
    ========================================================= */
 
 @media (max-width: 767.98px) {
@@ -637,26 +637,48 @@ img, svg { max-width: 100%; height: auto; }
     left: 0;
     right: 0;
 
-    /* Solid background instead of transparent glass */
-    background: #211b35 !important;
-    background-image: none !important;
+    /* Original website gradient with stronger opacity */
+    background:
+      radial-gradient(
+        circle at 5% 0%,
+        rgba(88, 112, 247, 0.30),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 100% 100%,
+        rgba(225, 90, 117, 0.24),
+        transparent 55%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(45, 38, 85, 0.97),
+        rgba(48, 32, 75, 0.96),
+        rgba(75, 39, 79, 0.96)
+      ) !important;
 
-    /* Remove transparency and blur */
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    opacity: 1 !important;
+    background-color: #30254f !important;
+    background-image:
+      radial-gradient(circle at 5% 0%, rgba(88,112,247,0.30), transparent 55%),
+      radial-gradient(circle at 100% 100%, rgba(225,90,117,0.24), transparent 55%),
+      linear-gradient(135deg, rgba(45,38,85,0.97), rgba(48,32,75,0.96), rgba(75,39,79,0.96)) !important;
 
-    /* Improve visibility */
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 20px;
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
+    /* Keep the glass shine */
+    backdrop-filter: blur(28px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
 
-    /* Layout */
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 1.5rem;
+
+    /* Purple and pink ambient glow */
+    box-shadow:
+      0 12px 40px rgba(0,0,0,0.35),
+      0 0 30px rgba(88,112,247,0.20),
+      0 0 35px rgba(156,101,232,0.18);
+
     padding: 14px;
     gap: 6px;
     z-index: 1060;
 
-    /* Scrolling on smaller screens */
     max-height: calc(100vh - 110px);
     max-height: calc(100dvh - 110px);
     overflow-y: auto;
@@ -666,6 +688,7 @@ img, svg { max-width: 100%; height: auto; }
     display: flex;
   }
 
+  /* Navigation links */
   .mobile-menu a:not(.btn) {
     display: block;
     padding: 13px 16px;
@@ -674,24 +697,31 @@ img, svg { max-width: 100%; height: auto; }
     font-weight: 500;
     border-radius: 12px;
     background: transparent;
-    transition: background 0.2s ease;
+    transition: all 0.25s ease;
   }
 
   .mobile-menu a:not(.btn):hover,
   .mobile-menu a:not(.btn):active {
-    color: #ffffff !important;
-    background: rgba(156, 101, 232, 0.2);
+    color: #fff !important;
+    background: linear-gradient(
+      90deg,
+      rgba(88,112,247,0.22),
+      rgba(156,101,232,0.22),
+      rgba(225,90,117,0.18)
+    );
+    box-shadow: 0 0 15px rgba(156,101,232,0.15);
   }
 
+  /* Let's Talk button */
   .mobile-menu .btn-gradient {
     margin-top: 8px;
     width: 100%;
     justify-content: center;
   }
 
+  /* Hamburger button */
   .menu-toggle {
     position: relative;
     z-index: 1061;
   }
 }
-
