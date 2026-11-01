@@ -621,3 +621,77 @@ img, svg { max-width: 100%; height: auto; }
 }
 .footer-text { font-size: .75rem; color: var(--muted-foreground); margin: 0; }
 .footer-heart { color: #E15A75; }
+
+
+
+/* =========================================================
+   MOBILE MENU FIX
+   Makes mobile navigation fully visible and readable
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .mobile-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+
+    /* Solid background instead of transparent glass */
+    background: #211b35 !important;
+    background-image: none !important;
+
+    /* Remove transparency and blur */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    opacity: 1 !important;
+
+    /* Improve visibility */
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
+
+    /* Layout */
+    padding: 14px;
+    gap: 6px;
+    z-index: 1060;
+
+    /* Scrolling on smaller screens */
+    max-height: calc(100vh - 110px);
+    max-height: calc(100dvh - 110px);
+    overflow-y: auto;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
+
+  .mobile-menu a:not(.btn) {
+    display: block;
+    padding: 13px 16px;
+    color: #f6f4fa !important;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 12px;
+    background: transparent;
+    transition: background 0.2s ease;
+  }
+
+  .mobile-menu a:not(.btn):hover,
+  .mobile-menu a:not(.btn):active {
+    color: #ffffff !important;
+    background: rgba(156, 101, 232, 0.2);
+  }
+
+  .mobile-menu .btn-gradient {
+    margin-top: 8px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 1061;
+  }
+}
+
